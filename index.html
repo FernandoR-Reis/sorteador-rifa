@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sorteador de rifa</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+<h1>Sorteador de rifa</h1>
+<p class="sub">Toque nos números que não foram pagos para deixá-los fora do sorteio.</p>
+<div class="layout">
+<section class="card" aria-label="Configuração">
+<h2>Configuração</h2>
+<div class="row"><div><label for="min">Primeiro número</label><input id="min" type="number" value="1"></div>
+<div><label for="max">Último número</label><input id="max" type="number" value="500"></div></div>
+<label for="qty">Quantos números sortear</label><input id="qty" type="number" min="1" value="1">
+<div id="exbox" class="hidden">
+<div class="btns"><button id="tog">Ocultar área de exclusões</button></div>
+<label for="ex">Números de fora (separe por vírgula, espaço ou linha; use 10-20 para faixas)</label>
+<textarea id="ex" placeholder="Ex.: 7, 23, 100-105"></textarea>
+<div class="btns"><button id="apply">Aplicar lista</button><button id="clear">Limpar exclusões</button></div>
+<div class="stat" id="stat"></div>
+</div>
+<button class="main" id="go">Sortear</button>
+<div class="btns"><button id="reset">Zerar sorteados</button></div>
+</section>
+<div style="display:grid;gap:16px;align-content:start">
+<section class="card" aria-live="polite"><div id="display"><span class="hint">Pronto para sortear</span></div></section>
+<section class="card hidden" id="gridcard"><div class="top"><h2>Números (toque para tirar ou voltar)</h2><button id="copy">Copiar excluídos</button></div>
+<div class="grid" id="grid"></div></section>
+<section class="card"><h2>Resultados</h2><ol class="hist" id="hist"><li style="list-style:none;color:var(--mute)">Nenhum sorteio ainda.</li></ol></section>
+</div>
+</div>
+</main>
+<script src="script.js" defer></script>
+</body>
+</html>
